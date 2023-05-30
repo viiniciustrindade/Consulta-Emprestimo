@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.txtCodItem = new System.Windows.Forms.TextBox();
+            this.txtNomeItem = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cbxTipoItem = new System.Windows.Forms.ComboBox();
             this.txtLocal = new System.Windows.Forms.TextBox();
@@ -47,8 +47,15 @@
             this.cbxSituacao = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.dadosGrid = new System.Windows.Forms.DataGridView();
-            this.colCodItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnConsultar = new System.Windows.Forms.Button();
+            this.btnNovaConsulta = new System.Windows.Forms.Button();
+            this.btnCarregarLocal = new System.Windows.Forms.Button();
+            this.btnCarregarAutor = new System.Windows.Forms.Button();
+            this.btnCarregarLeitor = new System.Windows.Forms.Button();
+            this.btnCarregarSecao = new System.Windows.Forms.Button();
             this.colNomeItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTipoItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEditora = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colLocal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAutor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colLeitor = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,12 +63,6 @@
             this.colSituacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDataInicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDataFim = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnConsultar = new System.Windows.Forms.Button();
-            this.btnNovaConsulta = new System.Windows.Forms.Button();
-            this.btnCarregarSecao = new System.Windows.Forms.Button();
-            this.btnCarregarLocal = new System.Windows.Forms.Button();
-            this.btnCarregarAutor = new System.Windows.Forms.Button();
-            this.btnCarregarLeitor = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dadosGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,16 +71,16 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 16);
+            this.label1.Size = new System.Drawing.Size(72, 16);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Codigo Item";
+            this.label1.Text = "Nome item";
             // 
-            // txtCodItem
+            // txtNomeItem
             // 
-            this.txtCodItem.Location = new System.Drawing.Point(94, 12);
-            this.txtCodItem.Name = "txtCodItem";
-            this.txtCodItem.Size = new System.Drawing.Size(66, 22);
-            this.txtCodItem.TabIndex = 1;
+            this.txtNomeItem.Location = new System.Drawing.Point(94, 12);
+            this.txtNomeItem.Name = "txtNomeItem";
+            this.txtNomeItem.Size = new System.Drawing.Size(201, 22);
+            this.txtNomeItem.TabIndex = 1;
             // 
             // label2
             // 
@@ -92,12 +93,19 @@
             // 
             // cbxTipoItem
             // 
+            this.cbxTipoItem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxTipoItem.FormattingEnabled = true;
+            this.cbxTipoItem.Items.AddRange(new object[] {
+            "Livro",
+            "Revista",
+            "Jornal",
+            "DVD/CD",
+            "Folheto",
+            "Artigo"});
             this.cbxTipoItem.Location = new System.Drawing.Point(94, 40);
             this.cbxTipoItem.Name = "cbxTipoItem";
             this.cbxTipoItem.Size = new System.Drawing.Size(201, 24);
             this.cbxTipoItem.TabIndex = 3;
-            this.cbxTipoItem.SelectedIndexChanged += new System.EventHandler(this.cbxTipoItem_SelectedIndexChanged);
             // 
             // txtLocal
             // 
@@ -114,7 +122,6 @@
             this.label3.Size = new System.Drawing.Size(40, 16);
             this.label3.TabIndex = 5;
             this.label3.Text = "Local";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label
             // 
@@ -212,10 +219,15 @@
             // 
             this.cbxSituacao.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbxSituacao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxSituacao.FormattingEnabled = true;
+            this.cbxSituacao.Items.AddRange(new object[] {
+            "Reservado",
+            "Emprestado",
+            "Disponivel"});
             this.cbxSituacao.Location = new System.Drawing.Point(428, 124);
             this.cbxSituacao.Name = "cbxSituacao";
-            this.cbxSituacao.Size = new System.Drawing.Size(134, 24);
+            this.cbxSituacao.Size = new System.Drawing.Size(115, 24);
             this.cbxSituacao.TabIndex = 17;
             // 
             // label8
@@ -240,8 +252,9 @@
             this.dadosGrid.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dadosGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dadosGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colCodItem,
             this.colNomeItem,
+            this.colTipoItem,
+            this.colEditora,
             this.colLocal,
             this.colAutor,
             this.colLeitor,
@@ -258,23 +271,100 @@
             this.dadosGrid.Size = new System.Drawing.Size(772, 282);
             this.dadosGrid.TabIndex = 18;
             // 
-            // colCodItem
+            // btnConsultar
             // 
-            this.colCodItem.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.colCodItem.FillWeight = 152.2843F;
-            this.colCodItem.HeaderText = "Item";
-            this.colCodItem.MinimumWidth = 6;
-            this.colCodItem.Name = "colCodItem";
-            this.colCodItem.ReadOnly = true;
-            this.colCodItem.Width = 61;
+            this.btnConsultar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnConsultar.Location = new System.Drawing.Point(549, 124);
+            this.btnConsultar.Name = "btnConsultar";
+            this.btnConsultar.Size = new System.Drawing.Size(116, 26);
+            this.btnConsultar.TabIndex = 19;
+            this.btnConsultar.Text = "Consultar";
+            this.btnConsultar.UseVisualStyleBackColor = true;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
+            // 
+            // btnNovaConsulta
+            // 
+            this.btnNovaConsulta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNovaConsulta.Location = new System.Drawing.Point(670, 124);
+            this.btnNovaConsulta.Name = "btnNovaConsulta";
+            this.btnNovaConsulta.Size = new System.Drawing.Size(116, 26);
+            this.btnNovaConsulta.TabIndex = 20;
+            this.btnNovaConsulta.Text = "Nova consulta";
+            this.btnNovaConsulta.UseVisualStyleBackColor = true;
+            // 
+            // btnCarregarLocal
+            // 
+            this.btnCarregarLocal.FlatAppearance.BorderSize = 0;
+            this.btnCarregarLocal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCarregarLocal.Image = global::Consulta_Emprestimo.Properties.Resources.magnifying_glass_icon;
+            this.btnCarregarLocal.Location = new System.Drawing.Point(301, 71);
+            this.btnCarregarLocal.Name = "btnCarregarLocal";
+            this.btnCarregarLocal.Size = new System.Drawing.Size(23, 22);
+            this.btnCarregarLocal.TabIndex = 25;
+            this.btnCarregarLocal.UseVisualStyleBackColor = true;
+            this.btnCarregarLocal.Click += new System.EventHandler(this.btnCarregarLocal_Click_1);
+            // 
+            // btnCarregarAutor
+            // 
+            this.btnCarregarAutor.FlatAppearance.BorderSize = 0;
+            this.btnCarregarAutor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCarregarAutor.Image = global::Consulta_Emprestimo.Properties.Resources.magnifying_glass_icon;
+            this.btnCarregarAutor.Location = new System.Drawing.Point(301, 98);
+            this.btnCarregarAutor.Name = "btnCarregarAutor";
+            this.btnCarregarAutor.Size = new System.Drawing.Size(23, 22);
+            this.btnCarregarAutor.TabIndex = 26;
+            this.btnCarregarAutor.UseVisualStyleBackColor = true;
+            this.btnCarregarAutor.Click += new System.EventHandler(this.btnCarregarAutor_Click_1);
+            // 
+            // btnCarregarLeitor
+            // 
+            this.btnCarregarLeitor.FlatAppearance.BorderSize = 0;
+            this.btnCarregarLeitor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCarregarLeitor.Image = global::Consulta_Emprestimo.Properties.Resources.magnifying_glass_icon;
+            this.btnCarregarLeitor.Location = new System.Drawing.Point(301, 126);
+            this.btnCarregarLeitor.Name = "btnCarregarLeitor";
+            this.btnCarregarLeitor.Size = new System.Drawing.Size(23, 22);
+            this.btnCarregarLeitor.TabIndex = 27;
+            this.btnCarregarLeitor.UseVisualStyleBackColor = true;
+            this.btnCarregarLeitor.Click += new System.EventHandler(this.btnCarregarLeitor_Click_1);
+            // 
+            // btnCarregarSecao
+            // 
+            this.btnCarregarSecao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCarregarSecao.FlatAppearance.BorderSize = 0;
+            this.btnCarregarSecao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCarregarSecao.Image = global::Consulta_Emprestimo.Properties.Resources.magnifying_glass_icon;
+            this.btnCarregarSecao.Location = new System.Drawing.Point(763, 40);
+            this.btnCarregarSecao.Name = "btnCarregarSecao";
+            this.btnCarregarSecao.Size = new System.Drawing.Size(23, 22);
+            this.btnCarregarSecao.TabIndex = 28;
+            this.btnCarregarSecao.UseVisualStyleBackColor = true;
+            this.btnCarregarSecao.Click += new System.EventHandler(this.btnCarregarSecao_Click_1);
             // 
             // colNomeItem
             // 
-            this.colNomeItem.HeaderText = "Tipo Item";
+            this.colNomeItem.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.colNomeItem.FillWeight = 152.2843F;
+            this.colNomeItem.HeaderText = "Nome item";
             this.colNomeItem.MinimumWidth = 6;
             this.colNomeItem.Name = "colNomeItem";
             this.colNomeItem.ReadOnly = true;
-            this.colNomeItem.Visible = false;
+            this.colNomeItem.Width = 101;
+            // 
+            // colTipoItem
+            // 
+            this.colTipoItem.HeaderText = "Tipo Item";
+            this.colTipoItem.MinimumWidth = 6;
+            this.colTipoItem.Name = "colTipoItem";
+            this.colTipoItem.ReadOnly = true;
+            this.colTipoItem.Visible = false;
+            // 
+            // colEditora
+            // 
+            this.colEditora.HeaderText = "Editora";
+            this.colEditora.MinimumWidth = 6;
+            this.colEditora.Name = "colEditora";
+            this.colEditora.ReadOnly = true;
             // 
             // colLocal
             // 
@@ -282,6 +372,7 @@
             this.colLocal.MinimumWidth = 6;
             this.colLocal.Name = "colLocal";
             this.colLocal.ReadOnly = true;
+            this.colLocal.Visible = false;
             // 
             // colAutor
             // 
@@ -325,76 +416,15 @@
             this.colDataFim.Name = "colDataFim";
             this.colDataFim.ReadOnly = true;
             // 
-            // btnConsultar
-            // 
-            this.btnConsultar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnConsultar.Location = new System.Drawing.Point(568, 125);
-            this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(105, 23);
-            this.btnConsultar.TabIndex = 19;
-            this.btnConsultar.Text = "Consultar";
-            this.btnConsultar.UseVisualStyleBackColor = true;
-            // 
-            // btnNovaConsulta
-            // 
-            this.btnNovaConsulta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNovaConsulta.Location = new System.Drawing.Point(682, 126);
-            this.btnNovaConsulta.Name = "btnNovaConsulta";
-            this.btnNovaConsulta.Size = new System.Drawing.Size(105, 22);
-            this.btnNovaConsulta.TabIndex = 20;
-            this.btnNovaConsulta.Text = "Nova consulta";
-            this.btnNovaConsulta.UseVisualStyleBackColor = true;
-            // 
-            // btnCarregarSecao
-            // 
-            this.btnCarregarSecao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCarregarSecao.Location = new System.Drawing.Point(763, 41);
-            this.btnCarregarSecao.Name = "btnCarregarSecao";
-            this.btnCarregarSecao.Size = new System.Drawing.Size(24, 23);
-            this.btnCarregarSecao.TabIndex = 21;
-            this.btnCarregarSecao.Text = "button3";
-            this.btnCarregarSecao.UseVisualStyleBackColor = true;
-            this.btnCarregarSecao.Click += new System.EventHandler(this.btnCarregarSecao_Click);
-            // 
-            // btnCarregarLocal
-            // 
-            this.btnCarregarLocal.Location = new System.Drawing.Point(301, 70);
-            this.btnCarregarLocal.Name = "btnCarregarLocal";
-            this.btnCarregarLocal.Size = new System.Drawing.Size(24, 23);
-            this.btnCarregarLocal.TabIndex = 22;
-            this.btnCarregarLocal.Text = "button4";
-            this.btnCarregarLocal.UseVisualStyleBackColor = true;
-            this.btnCarregarLocal.Click += new System.EventHandler(this.btnCarregarLocal_Click);
-            // 
-            // btnCarregarAutor
-            // 
-            this.btnCarregarAutor.Location = new System.Drawing.Point(301, 99);
-            this.btnCarregarAutor.Name = "btnCarregarAutor";
-            this.btnCarregarAutor.Size = new System.Drawing.Size(24, 23);
-            this.btnCarregarAutor.TabIndex = 23;
-            this.btnCarregarAutor.Text = "button5";
-            this.btnCarregarAutor.UseVisualStyleBackColor = true;
-            this.btnCarregarAutor.Click += new System.EventHandler(this.btnCarregarAutor_Click);
-            // 
-            // btnCarregarLeitor
-            // 
-            this.btnCarregarLeitor.Location = new System.Drawing.Point(301, 126);
-            this.btnCarregarLeitor.Name = "btnCarregarLeitor";
-            this.btnCarregarLeitor.Size = new System.Drawing.Size(24, 23);
-            this.btnCarregarLeitor.TabIndex = 24;
-            this.btnCarregarLeitor.Text = "button6";
-            this.btnCarregarLeitor.UseVisualStyleBackColor = true;
-            this.btnCarregarLeitor.Click += new System.EventHandler(this.btnCarregarLeitor_Click);
-            // 
             // FrmConsultaEmprestimo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnCarregarSecao);
             this.Controls.Add(this.btnCarregarLeitor);
             this.Controls.Add(this.btnCarregarAutor);
             this.Controls.Add(this.btnCarregarLocal);
-            this.Controls.Add(this.btnCarregarSecao);
             this.Controls.Add(this.btnNovaConsulta);
             this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.dadosGrid);
@@ -414,9 +444,10 @@
             this.Controls.Add(this.txtLocal);
             this.Controls.Add(this.cbxTipoItem);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtCodItem);
+            this.Controls.Add(this.txtNomeItem);
             this.Controls.Add(this.label1);
             this.Name = "FrmConsultaEmprestimo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consulta Emprestimo";
             ((System.ComponentModel.ISupportInitialize)(this.dadosGrid)).EndInit();
             this.ResumeLayout(false);
@@ -427,7 +458,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtCodItem;
+        private System.Windows.Forms.TextBox txtNomeItem;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbxTipoItem;
         private System.Windows.Forms.TextBox txtLocal;
@@ -447,12 +478,13 @@
         private System.Windows.Forms.DataGridView dadosGrid;
         private System.Windows.Forms.Button btnConsultar;
         private System.Windows.Forms.Button btnNovaConsulta;
-        private System.Windows.Forms.Button btnCarregarSecao;
         private System.Windows.Forms.Button btnCarregarLocal;
         private System.Windows.Forms.Button btnCarregarAutor;
         private System.Windows.Forms.Button btnCarregarLeitor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCodItem;
+        private System.Windows.Forms.Button btnCarregarSecao;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNomeItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTipoItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colEditora;
         private System.Windows.Forms.DataGridViewTextBoxColumn colLocal;
         private System.Windows.Forms.DataGridViewTextBoxColumn colAutor;
         private System.Windows.Forms.DataGridViewTextBoxColumn colLeitor;
