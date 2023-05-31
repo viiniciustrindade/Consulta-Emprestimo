@@ -64,71 +64,71 @@ namespace Consulta_Emprestimo
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
-            string sql = "SELECT ITE.codItem, ITE.nome, ITE.nomeAutor, ITE.nomeEditora, ITE.tipoItem, ITE.nomeColecao, ITE.nomeLocal, ITE.secao, ITE.tipoStatus " +
-            "FROM mvtBibItemAcervo ITE " +
-            "WHERE 1 = 1";
 
-            if (!string.IsNullOrEmpty(txtNomeItem.Text.Trim()))
-            {
-                sql += $" AND ITE.nome LIKE '%{txtNomeItem.Text.Trim()}%'";
-            }
-            if (!string.IsNullOrEmpty(txtLocal.Text.Trim()))
-            {
-                sql += $" AND ITE.nomeLocal LIKE '%{txtLocal.Text.Trim()}%'";
-            }
-            if (!string.IsNullOrEmpty(txtAutor.Text.Trim()))
-            {
-                sql += $" AND ITE.nomeAutor LIKE '%{txtAutor.Text.Trim()}%'";
-            }
-            if (!string.IsNullOrEmpty(cbxTipoItem.Text.Trim()))
-            {
-                sql += $" AND ITE.tipoItem LIKE '%{cbxTipoItem.Text.Trim()}%'";
-            }
-            /*if (!string.IsNullOrEmpty(txtColecao.Text.Trim()))
-            {
-                sql += $" AND ITE.nomeColecao LIKE '%{txtColecao.Text.Trim()}%'";
-            }*/
-            if (!string.IsNullOrEmpty(txtSecao.Text.Trim()))
-            {
-                sql += $" AND ITE.secao LIKE '%{txtSecao.Text.Trim()}%'";
-            }
-            if (!string.IsNullOrEmpty(cbxSituacao.Text.Trim()))
-            {
-                sql += $" AND ITE.tipoStatus LIKE '%{cbxSituacao.Text.Trim()}%'";
-            }
-
-
-
-            dadosGrid.Rows.Clear();
+                StringBuilder sql2 = new StringBuilder();
+                sql2.AppendLine("SELECT ITE.nome, RES.nomeLeitor, ITE.tipoItem, RES. situacao, ITE.nomeLocal, ITE.nomeAutor, ITE.secao, ITE.nomeEditora, ITE.tipoStatus, RES.dataReserva, RES.prazoReserva");
+                sql2.AppendLine("FROM mvtBibReserva RES INNER JOIN mvtBibItemAcervo ITE ON RES.codItem = ITE.codItem");
+                sql2.AppendLine("WHERE 1=1");
+                if (!string.IsNullOrEmpty(txtNomeItem.Text))
+                {
+                    sql2.AppendLine($"AND ITE.nome LIKE '%{txtNomeItem.Text}%'");
+                }
+                if (!string.IsNullOrEmpty(cbxSituacao.Text))
+                {
+                    sql2.AppendLine($"AND ITE.tipoStatus LIKE '%{cbxSituacao.Text}%'");
+                }
+                if (!string.IsNullOrEmpty(txtLeitor.Text))
+                {
+                    sql2.AppendLine($"AND RES.nomeLeitor LIKE '%{txtLeitor.Text}%'");
+                }
+                if (!string.IsNullOrEmpty(txtLocal.Text))
+                {
+                    sql2.AppendLine($"AND ITE.nomeLocal LIKE '%{txtLocal.Text}%'");
+                }
+                if (!string.IsNullOrEmpty(txtSecao.Text))
+                {
+                    sql2.AppendLine($"AND ITE.secao LIKE '%{txtSecao.Text}%'");
+                }
+                if (!string.IsNullOrEmpty(cbxTipoItem.Text))
+                {
+                    sql2.AppendLine($"AND ITE.tipoItem LIKE '%{cbxTipoItem.Text}%'");
+                }
             using (SqlConnection connection = DaoConnection.GetConexao())
             {
-                using(SqlCommand command = new SqlCommand(sql, connection))
-                using (SqlDataReader reader = command.ExecuteReader())
+
+                using (SqlCommand command = new SqlCommand(sql2.ToString(), connection))
                 {
-                    string sql2 = "SELECT TOP 1 nomeLeitor, dataReserva, prazoReserva FROM mvtBibReserva WHERE nomeItem = @nomeItem AND tipoItem = @tipoItem AND situacao = @situacao";
-                    command.CommandText = sql2.ToString();
-                    command.Parameters.Add(new SqlParameter("@tipoItem", cbxTipoItem.Text));
-                    command.Parameters.Add(new SqlParameter("@nomeItem", txtNomeItem.Text));
-                    command.Parameters.Add(new SqlParameter("@situacao", txtNomeItem.Text));
 
-
+                    SqlDataReader reader = command.ExecuteReader();
+                    dadosGrid.Rows.Clear();
                     while (reader.Read())
                     {
-                        DataGridViewRow row = new DataGridViewRow();
-                        row.CreateCells(dadosGrid);
+                        DataGridViewRow row = dadosGrid.Rows[dadosGrid.Rows.Add()];
                         row.Cells[colNomeItem.Index].Value = reader["nome"].ToString();
                         row.Cells[colLeitor.Index].Value = reader["nomeLeitor"].ToString();
                         row.Cells[colLocal.Index].Value = reader["nomeLocal"].ToString();
                         row.Cells[colEditora.Index].Value = reader["nomeEditora"].ToString();
                         row.Cells[colAutor.Index].Value = reader["nomeAutor"].ToString();
                         row.Cells[colSituacao.Index].Value = reader["tipoStatus"].ToString();
+                        row.Cells[colDataInicio.Index].Value = reader["dataReserva"].ToString().Substring(0, 10);
+                        row.Cells[colDataFim.Index].Value = reader["prazoReserva"].ToString().Substring(0, 10);
                         row.Cells[colTipoItem.Index].Value = reader["tipoItem"].ToString();
                         row.Cells[colSecao.Index].Value = reader["secao"].ToString();
-
-                        dadosGrid.Rows.Add(row);
                     }
                 }
             }
+        }
+
+        private void btnNovaConsulta_Click(object sender, EventArgs e)
+        {
+            txtNomeItem.Text = "";
+            cbxTipoItem.SelectedIndex = -1;
+            txtLocal.Text = "";
+            txtAutor.Text = "";
+            txtLeitor.Text = "";
+            txtSecao.Text = "";
+            cbxSituacao.SelectedIndex = -1;
+            dadosGrid.Rows.Clear();
         }
     }
 }
