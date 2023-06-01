@@ -229,7 +229,8 @@
             this.cbxSituacao.FormattingEnabled = true;
             this.cbxSituacao.Items.AddRange(new object[] {
             "Reservado",
-            "Disponivel"});
+            "Disponivel",
+            "Emprestado"});
             this.cbxSituacao.Location = new System.Drawing.Point(428, 124);
             this.cbxSituacao.Name = "cbxSituacao";
             this.cbxSituacao.Size = new System.Drawing.Size(115, 24);
@@ -275,6 +276,7 @@
             this.dadosGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dadosGrid.Size = new System.Drawing.Size(772, 282);
             this.dadosGrid.TabIndex = 18;
+            this.dadosGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dadosGrid_CellDoubleClick);
             // 
             // colNomeItem
             // 

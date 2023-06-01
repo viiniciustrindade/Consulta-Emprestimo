@@ -93,6 +93,14 @@ namespace Consulta_Emprestimo
                 {
                     sql2.AppendLine($"AND ITE.tipoItem LIKE '%{cbxTipoItem.Text}%'");
                 }
+                if (dtpDataInicio.Value != null)
+                {
+                    sql2.AppendLine($"AND RES.dataReserva >= '{dtpDataInicio.Value.Date}'");
+                }
+                if (dtpDataFim.Value != null)
+                {
+                    sql2.AppendLine($"AND RES.prazoReserva <= '{dtpDataFim.Value.Date}'");
+                }
             using (SqlConnection connection = DaoConnection.GetConexao())
             {
 
@@ -129,6 +137,19 @@ namespace Consulta_Emprestimo
             txtSecao.Text = "";
             cbxSituacao.SelectedIndex = -1;
             dadosGrid.Rows.Clear();
+        }
+
+        private void dadosGrid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtNomeItem.Text = dadosGrid.Rows[e.RowIndex].Cells[colNomeItem.Index].Value + "";
+            cbxTipoItem.Text = dadosGrid.Rows[e.RowIndex].Cells[colTipoItem.Index].Value + "";
+            cbxSituacao.Text = dadosGrid.Rows[e.RowIndex].Cells[colSituacao.Index].Value + "";
+            txtLeitor.Text = dadosGrid.Rows[e.RowIndex].Cells[colLeitor.Index].Value + "";
+            dtpDataInicio.Text = dadosGrid.Rows[e.RowIndex].Cells[colDataInicio.Index].Value + "";
+            dtpDataFim.Text = dadosGrid.Rows[e.RowIndex].Cells[colDataFim.Index].Value + "";
+            txtLocal.Text = dadosGrid.Rows[e.RowIndex].Cells[colLocal.Index].Value + "";
+            txtSecao.Text = dadosGrid.Rows[e.RowIndex].Cells[colSecao.Index].Value + "";
+            txtAutor.Text = dadosGrid.Rows[e.RowIndex].Cells[colAutor.Index].Value + "";
         }
     }
 }

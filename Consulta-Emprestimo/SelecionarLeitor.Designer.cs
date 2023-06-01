@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SelecionarLeitor));
             this.txtcodLeitor = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNomeLeitor2 = new System.Windows.Forms.TextBox();
@@ -125,6 +126,7 @@
             this.Controls.Add(this.txtNomeLeitor2);
             this.Controls.Add(this.txtNomeAutor);
             this.Controls.Add(this.dadosGrid2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SelecionarLeitor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Selecionar leitor";
