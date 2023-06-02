@@ -66,7 +66,7 @@ namespace Consulta_Emprestimo
         {
 
                 StringBuilder sql2 = new StringBuilder();
-                sql2.AppendLine("SELECT ITE.nome, RES.nomeLeitor, ITE.tipoItem, RES. situacao, ITE.nomeLocal, ITE.nomeAutor, ITE.secao, ITE.nomeEditora, ITE.tipoStatus, RES.dataReserva, RES.prazoReserva");
+                sql2.AppendLine("SELECT ITE.nome, RES.nomeLeitor, ITE.tipoItem, RES.situacao, ITE.nomeLocal, ITE.nomeAutor, ITE.secao, ITE.nomeEditora, ITE.tipoStatus, RES.dataReserva, RES.prazoReserva");
                 sql2.AppendLine("FROM mvtBibReserva RES INNER JOIN mvtBibItemAcervo ITE ON RES.codItem = ITE.codItem");
                 sql2.AppendLine("WHERE 1=1");
                 if (!string.IsNullOrEmpty(txtNomeItem.Text))
@@ -75,7 +75,7 @@ namespace Consulta_Emprestimo
                 }
                 if (!string.IsNullOrEmpty(cbxSituacao.Text))
                 {
-                    sql2.AppendLine($"AND ITE.tipoStatus LIKE '%{cbxSituacao.Text}%'");
+                    sql2.AppendLine($"AND RES.situacao LIKE '%{cbxSituacao.Text}%'");
                 }
                 if (!string.IsNullOrEmpty(txtLeitor.Text))
                 {
@@ -117,7 +117,7 @@ namespace Consulta_Emprestimo
                         row.Cells[colLocal.Index].Value = reader["nomeLocal"].ToString();
                         row.Cells[colEditora.Index].Value = reader["nomeEditora"].ToString();
                         row.Cells[colAutor.Index].Value = reader["nomeAutor"].ToString();
-                        row.Cells[colSituacao.Index].Value = reader["tipoStatus"].ToString();
+                        row.Cells[colSituacao.Index].Value = reader["situacao"].ToString();
                         row.Cells[colDataInicio.Index].Value = reader["dataReserva"].ToString().Substring(0, 10);
                         row.Cells[colDataFim.Index].Value = reader["prazoReserva"].ToString().Substring(0, 10);
                         row.Cells[colTipoItem.Index].Value = reader["tipoItem"].ToString();

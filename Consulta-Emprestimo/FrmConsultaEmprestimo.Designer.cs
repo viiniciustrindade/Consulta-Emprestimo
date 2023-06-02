@@ -166,7 +166,7 @@
             this.txtSecao.Location = new System.Drawing.Point(428, 40);
             this.txtSecao.Name = "txtSecao";
             this.txtSecao.ReadOnly = true;
-            this.txtSecao.Size = new System.Drawing.Size(329, 22);
+            this.txtSecao.Size = new System.Drawing.Size(237, 22);
             this.txtSecao.TabIndex = 11;
             // 
             // label5
@@ -184,9 +184,10 @@
             // 
             this.dtpDataInicio.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtpDataInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpDataInicio.Location = new System.Drawing.Point(428, 68);
             this.dtpDataInicio.Name = "dtpDataInicio";
-            this.dtpDataInicio.Size = new System.Drawing.Size(359, 22);
+            this.dtpDataInicio.Size = new System.Drawing.Size(115, 22);
             this.dtpDataInicio.TabIndex = 12;
             this.dtpDataInicio.Value = new System.DateTime(2023, 5, 20, 0, 0, 0, 0);
             // 
@@ -216,9 +217,10 @@
             // 
             this.dtpDataFim.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtpDataFim.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpDataFim.Location = new System.Drawing.Point(428, 96);
             this.dtpDataFim.Name = "dtpDataFim";
-            this.dtpDataFim.Size = new System.Drawing.Size(359, 22);
+            this.dtpDataFim.Size = new System.Drawing.Size(115, 22);
             this.dtpDataFim.TabIndex = 15;
             // 
             // cbxSituacao
@@ -228,8 +230,7 @@
             this.cbxSituacao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxSituacao.FormattingEnabled = true;
             this.cbxSituacao.Items.AddRange(new object[] {
-            "Reservado",
-            "Disponivel",
+            "Devolvido",
             "Emprestado"});
             this.cbxSituacao.Location = new System.Drawing.Point(428, 124);
             this.cbxSituacao.Name = "cbxSituacao";
@@ -417,7 +418,7 @@
             this.btnCarregarSecao.FlatAppearance.BorderSize = 0;
             this.btnCarregarSecao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCarregarSecao.Image = global::Consulta_Emprestimo.Properties.Resources.magnifying_glass_icon;
-            this.btnCarregarSecao.Location = new System.Drawing.Point(763, 40);
+            this.btnCarregarSecao.Location = new System.Drawing.Point(671, 40);
             this.btnCarregarSecao.Name = "btnCarregarSecao";
             this.btnCarregarSecao.Size = new System.Drawing.Size(23, 22);
             this.btnCarregarSecao.TabIndex = 28;
