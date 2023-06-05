@@ -54,7 +54,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(51, 16);
             this.label1.TabIndex = 39;
-            this.label1.Text = "Codigo";
+            this.label1.Text = "Código";
             // 
             // txtNomeLeitor2
             // 
@@ -62,7 +62,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNomeLeitor2.Location = new System.Drawing.Point(97, 37);
             this.txtNomeLeitor2.Name = "txtNomeLeitor2";
-            this.txtNomeLeitor2.Size = new System.Drawing.Size(491, 22);
+            this.txtNomeLeitor2.Size = new System.Drawing.Size(266, 22);
             this.txtNomeLeitor2.TabIndex = 38;
             this.txtNomeLeitor2.TextChanged += new System.EventHandler(this.txtNomeLeitor2_TextChanged);
             // 
@@ -71,9 +71,9 @@
             this.txtNomeAutor.AutoSize = true;
             this.txtNomeAutor.Location = new System.Drawing.Point(13, 40);
             this.txtNomeAutor.Name = "txtNomeAutor";
-            this.txtNomeAutor.Size = new System.Drawing.Size(78, 16);
+            this.txtNomeAutor.Size = new System.Drawing.Size(76, 16);
             this.txtNomeAutor.TabIndex = 37;
-            this.txtNomeAutor.Text = "Nome Autor";
+            this.txtNomeAutor.Text = "Nome leitor";
             // 
             // dadosGrid2
             // 
@@ -102,7 +102,7 @@
             // 
             this.colCodLeitor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.colCodLeitor.FillWeight = 152.2843F;
-            this.colCodLeitor.HeaderText = "Codigo";
+            this.colCodLeitor.HeaderText = "Código";
             this.colCodLeitor.MinimumWidth = 6;
             this.colCodLeitor.Name = "colCodLeitor";
             this.colCodLeitor.ReadOnly = true;
@@ -111,7 +111,7 @@
             // colNomeLeitor
             // 
             this.colNomeLeitor.FillWeight = 73.85786F;
-            this.colNomeLeitor.HeaderText = "Nome Leitor";
+            this.colNomeLeitor.HeaderText = "Nome leitor";
             this.colNomeLeitor.MinimumWidth = 6;
             this.colNomeLeitor.Name = "colNomeLeitor";
             this.colNomeLeitor.ReadOnly = true;

@@ -48,6 +48,12 @@
             this.cbxSituacao = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.dadosGrid = new System.Windows.Forms.DataGridView();
+            this.btnConsultar = new System.Windows.Forms.Button();
+            this.btnNovaConsulta = new System.Windows.Forms.Button();
+            this.btnCarregarLocal = new System.Windows.Forms.Button();
+            this.btnCarregarAutor = new System.Windows.Forms.Button();
+            this.btnCarregarLeitor = new System.Windows.Forms.Button();
+            this.btnCarregarSecao = new System.Windows.Forms.Button();
             this.colNomeItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTipoItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEditora = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,12 +64,6 @@
             this.colSituacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDataInicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDataFim = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnConsultar = new System.Windows.Forms.Button();
-            this.btnNovaConsulta = new System.Windows.Forms.Button();
-            this.btnCarregarLocal = new System.Windows.Forms.Button();
-            this.btnCarregarAutor = new System.Windows.Forms.Button();
-            this.btnCarregarLeitor = new System.Windows.Forms.Button();
-            this.btnCarregarSecao = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dadosGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -161,8 +161,6 @@
             // 
             // txtSecao
             // 
-            this.txtSecao.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSecao.Location = new System.Drawing.Point(428, 40);
             this.txtSecao.Name = "txtSecao";
             this.txtSecao.ReadOnly = true;
@@ -171,8 +169,6 @@
             // 
             // label5
             // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(346, 43);
             this.label5.Name = "label5";
@@ -182,8 +178,6 @@
             // 
             // dtpDataInicio
             // 
-            this.dtpDataInicio.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpDataInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpDataInicio.Location = new System.Drawing.Point(428, 68);
             this.dtpDataInicio.Name = "dtpDataInicio";
@@ -193,30 +187,24 @@
             // 
             // label6
             // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(346, 71);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(70, 16);
             this.label6.TabIndex = 13;
-            this.label6.Text = "Data Inicio";
+            this.label6.Text = "Data inicio";
             // 
             // label7
             // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(346, 101);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(64, 16);
+            this.label7.Size = new System.Drawing.Size(59, 16);
             this.label7.TabIndex = 14;
-            this.label7.Text = "Data Fim ";
+            this.label7.Text = "Data fim ";
             // 
             // dtpDataFim
             // 
-            this.dtpDataFim.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpDataFim.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpDataFim.Location = new System.Drawing.Point(428, 96);
             this.dtpDataFim.Name = "dtpDataFim";
@@ -225,8 +213,6 @@
             // 
             // cbxSituacao
             // 
-            this.cbxSituacao.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.cbxSituacao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxSituacao.FormattingEnabled = true;
             this.cbxSituacao.Items.AddRange(new object[] {
@@ -239,8 +225,6 @@
             // 
             // label8
             // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(346, 129);
             this.label8.Name = "label8";
@@ -278,6 +262,76 @@
             this.dadosGrid.Size = new System.Drawing.Size(772, 282);
             this.dadosGrid.TabIndex = 18;
             this.dadosGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dadosGrid_CellDoubleClick);
+            // 
+            // btnConsultar
+            // 
+            this.btnConsultar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnConsultar.Location = new System.Drawing.Point(549, 124);
+            this.btnConsultar.Name = "btnConsultar";
+            this.btnConsultar.Size = new System.Drawing.Size(116, 26);
+            this.btnConsultar.TabIndex = 19;
+            this.btnConsultar.Text = "Consultar";
+            this.btnConsultar.UseVisualStyleBackColor = true;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
+            // 
+            // btnNovaConsulta
+            // 
+            this.btnNovaConsulta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNovaConsulta.Location = new System.Drawing.Point(671, 124);
+            this.btnNovaConsulta.Name = "btnNovaConsulta";
+            this.btnNovaConsulta.Size = new System.Drawing.Size(116, 26);
+            this.btnNovaConsulta.TabIndex = 20;
+            this.btnNovaConsulta.Text = "Nova consulta";
+            this.btnNovaConsulta.UseVisualStyleBackColor = true;
+            this.btnNovaConsulta.Click += new System.EventHandler(this.btnNovaConsulta_Click);
+            // 
+            // btnCarregarLocal
+            // 
+            this.btnCarregarLocal.FlatAppearance.BorderSize = 0;
+            this.btnCarregarLocal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCarregarLocal.Image = global::Consulta_Emprestimo.Properties.Resources.magnifying_glass_icon;
+            this.btnCarregarLocal.Location = new System.Drawing.Point(301, 71);
+            this.btnCarregarLocal.Name = "btnCarregarLocal";
+            this.btnCarregarLocal.Size = new System.Drawing.Size(23, 22);
+            this.btnCarregarLocal.TabIndex = 25;
+            this.btnCarregarLocal.UseVisualStyleBackColor = true;
+            this.btnCarregarLocal.Click += new System.EventHandler(this.btnCarregarLocal_Click_1);
+            // 
+            // btnCarregarAutor
+            // 
+            this.btnCarregarAutor.FlatAppearance.BorderSize = 0;
+            this.btnCarregarAutor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCarregarAutor.Image = global::Consulta_Emprestimo.Properties.Resources.magnifying_glass_icon;
+            this.btnCarregarAutor.Location = new System.Drawing.Point(301, 98);
+            this.btnCarregarAutor.Name = "btnCarregarAutor";
+            this.btnCarregarAutor.Size = new System.Drawing.Size(23, 22);
+            this.btnCarregarAutor.TabIndex = 26;
+            this.btnCarregarAutor.UseVisualStyleBackColor = true;
+            this.btnCarregarAutor.Click += new System.EventHandler(this.btnCarregarAutor_Click_1);
+            // 
+            // btnCarregarLeitor
+            // 
+            this.btnCarregarLeitor.FlatAppearance.BorderSize = 0;
+            this.btnCarregarLeitor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCarregarLeitor.Image = global::Consulta_Emprestimo.Properties.Resources.magnifying_glass_icon;
+            this.btnCarregarLeitor.Location = new System.Drawing.Point(301, 126);
+            this.btnCarregarLeitor.Name = "btnCarregarLeitor";
+            this.btnCarregarLeitor.Size = new System.Drawing.Size(23, 22);
+            this.btnCarregarLeitor.TabIndex = 27;
+            this.btnCarregarLeitor.UseVisualStyleBackColor = true;
+            this.btnCarregarLeitor.Click += new System.EventHandler(this.btnCarregarLeitor_Click_1);
+            // 
+            // btnCarregarSecao
+            // 
+            this.btnCarregarSecao.FlatAppearance.BorderSize = 0;
+            this.btnCarregarSecao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCarregarSecao.Image = global::Consulta_Emprestimo.Properties.Resources.magnifying_glass_icon;
+            this.btnCarregarSecao.Location = new System.Drawing.Point(671, 40);
+            this.btnCarregarSecao.Name = "btnCarregarSecao";
+            this.btnCarregarSecao.Size = new System.Drawing.Size(23, 22);
+            this.btnCarregarSecao.TabIndex = 28;
+            this.btnCarregarSecao.UseVisualStyleBackColor = true;
+            this.btnCarregarSecao.Click += new System.EventHandler(this.btnCarregarSecao_Click_1);
             // 
             // colNomeItem
             // 
@@ -342,88 +396,17 @@
             // 
             // colDataInicio
             // 
-            this.colDataInicio.HeaderText = "Data Inicio";
+            this.colDataInicio.HeaderText = "Data inicio";
             this.colDataInicio.MinimumWidth = 6;
             this.colDataInicio.Name = "colDataInicio";
             this.colDataInicio.ReadOnly = true;
             // 
             // colDataFim
             // 
-            this.colDataFim.HeaderText = "Data Fim";
+            this.colDataFim.HeaderText = "Data fim";
             this.colDataFim.MinimumWidth = 6;
             this.colDataFim.Name = "colDataFim";
             this.colDataFim.ReadOnly = true;
-            // 
-            // btnConsultar
-            // 
-            this.btnConsultar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnConsultar.Location = new System.Drawing.Point(549, 124);
-            this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(116, 26);
-            this.btnConsultar.TabIndex = 19;
-            this.btnConsultar.Text = "Consultar";
-            this.btnConsultar.UseVisualStyleBackColor = true;
-            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
-            // 
-            // btnNovaConsulta
-            // 
-            this.btnNovaConsulta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNovaConsulta.Location = new System.Drawing.Point(670, 124);
-            this.btnNovaConsulta.Name = "btnNovaConsulta";
-            this.btnNovaConsulta.Size = new System.Drawing.Size(117, 26);
-            this.btnNovaConsulta.TabIndex = 20;
-            this.btnNovaConsulta.Text = "Nova consulta";
-            this.btnNovaConsulta.UseVisualStyleBackColor = true;
-            this.btnNovaConsulta.Click += new System.EventHandler(this.btnNovaConsulta_Click);
-            // 
-            // btnCarregarLocal
-            // 
-            this.btnCarregarLocal.FlatAppearance.BorderSize = 0;
-            this.btnCarregarLocal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCarregarLocal.Image = global::Consulta_Emprestimo.Properties.Resources.magnifying_glass_icon;
-            this.btnCarregarLocal.Location = new System.Drawing.Point(301, 71);
-            this.btnCarregarLocal.Name = "btnCarregarLocal";
-            this.btnCarregarLocal.Size = new System.Drawing.Size(23, 22);
-            this.btnCarregarLocal.TabIndex = 25;
-            this.btnCarregarLocal.UseVisualStyleBackColor = true;
-            this.btnCarregarLocal.Click += new System.EventHandler(this.btnCarregarLocal_Click_1);
-            // 
-            // btnCarregarAutor
-            // 
-            this.btnCarregarAutor.FlatAppearance.BorderSize = 0;
-            this.btnCarregarAutor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCarregarAutor.Image = global::Consulta_Emprestimo.Properties.Resources.magnifying_glass_icon;
-            this.btnCarregarAutor.Location = new System.Drawing.Point(301, 98);
-            this.btnCarregarAutor.Name = "btnCarregarAutor";
-            this.btnCarregarAutor.Size = new System.Drawing.Size(23, 22);
-            this.btnCarregarAutor.TabIndex = 26;
-            this.btnCarregarAutor.UseVisualStyleBackColor = true;
-            this.btnCarregarAutor.Click += new System.EventHandler(this.btnCarregarAutor_Click_1);
-            // 
-            // btnCarregarLeitor
-            // 
-            this.btnCarregarLeitor.FlatAppearance.BorderSize = 0;
-            this.btnCarregarLeitor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCarregarLeitor.Image = global::Consulta_Emprestimo.Properties.Resources.magnifying_glass_icon;
-            this.btnCarregarLeitor.Location = new System.Drawing.Point(301, 126);
-            this.btnCarregarLeitor.Name = "btnCarregarLeitor";
-            this.btnCarregarLeitor.Size = new System.Drawing.Size(23, 22);
-            this.btnCarregarLeitor.TabIndex = 27;
-            this.btnCarregarLeitor.UseVisualStyleBackColor = true;
-            this.btnCarregarLeitor.Click += new System.EventHandler(this.btnCarregarLeitor_Click_1);
-            // 
-            // btnCarregarSecao
-            // 
-            this.btnCarregarSecao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCarregarSecao.FlatAppearance.BorderSize = 0;
-            this.btnCarregarSecao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCarregarSecao.Image = global::Consulta_Emprestimo.Properties.Resources.magnifying_glass_icon;
-            this.btnCarregarSecao.Location = new System.Drawing.Point(671, 40);
-            this.btnCarregarSecao.Name = "btnCarregarSecao";
-            this.btnCarregarSecao.Size = new System.Drawing.Size(23, 22);
-            this.btnCarregarSecao.TabIndex = 28;
-            this.btnCarregarSecao.UseVisualStyleBackColor = true;
-            this.btnCarregarSecao.Click += new System.EventHandler(this.btnCarregarSecao_Click_1);
             // 
             // FrmConsultaEmprestimo
             // 

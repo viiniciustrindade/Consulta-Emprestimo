@@ -54,7 +54,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(51, 16);
             this.label1.TabIndex = 34;
-            this.label1.Text = "Codigo";
+            this.label1.Text = "Código";
             // 
             // txtNomeAutor2
             // 
@@ -62,7 +62,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNomeAutor2.Location = new System.Drawing.Point(97, 37);
             this.txtNomeAutor2.Name = "txtNomeAutor2";
-            this.txtNomeAutor2.Size = new System.Drawing.Size(491, 22);
+            this.txtNomeAutor2.Size = new System.Drawing.Size(232, 22);
             this.txtNomeAutor2.TabIndex = 33;
             this.txtNomeAutor2.TextChanged += new System.EventHandler(this.txtNomeAutor2_TextChanged);
             // 
@@ -71,9 +71,9 @@
             this.txtNomeAutor.AutoSize = true;
             this.txtNomeAutor.Location = new System.Drawing.Point(13, 40);
             this.txtNomeAutor.Name = "txtNomeAutor";
-            this.txtNomeAutor.Size = new System.Drawing.Size(78, 16);
+            this.txtNomeAutor.Size = new System.Drawing.Size(77, 16);
             this.txtNomeAutor.TabIndex = 32;
-            this.txtNomeAutor.Text = "Nome Autor";
+            this.txtNomeAutor.Text = "Nome autor";
             // 
             // dadosGrid2
             // 
@@ -102,7 +102,7 @@
             // 
             this.colcodigoAutor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.colcodigoAutor.FillWeight = 152.2843F;
-            this.colcodigoAutor.HeaderText = "Codigo";
+            this.colcodigoAutor.HeaderText = "Código";
             this.colcodigoAutor.MinimumWidth = 6;
             this.colcodigoAutor.Name = "colcodigoAutor";
             this.colcodigoAutor.ReadOnly = true;
@@ -111,7 +111,7 @@
             // colnomeDoAutor
             // 
             this.colnomeDoAutor.FillWeight = 73.85786F;
-            this.colnomeDoAutor.HeaderText = "Nome do Autor";
+            this.colnomeDoAutor.HeaderText = "Nome do autor";
             this.colnomeDoAutor.MinimumWidth = 6;
             this.colnomeDoAutor.Name = "colnomeDoAutor";
             this.colnomeDoAutor.ReadOnly = true;

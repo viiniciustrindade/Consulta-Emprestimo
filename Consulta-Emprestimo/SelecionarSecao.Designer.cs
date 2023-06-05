@@ -54,7 +54,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(51, 16);
             this.label1.TabIndex = 58;
-            this.label1.Text = "Codigo";
+            this.label1.Text = "Código";
             // 
             // txtNomeSecao2
             // 
@@ -62,7 +62,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNomeSecao2.Location = new System.Drawing.Point(95, 38);
             this.txtNomeSecao2.Name = "txtNomeSecao2";
-            this.txtNomeSecao2.Size = new System.Drawing.Size(493, 22);
+            this.txtNomeSecao2.Size = new System.Drawing.Size(263, 22);
             this.txtNomeSecao2.TabIndex = 57;
             this.txtNomeSecao2.TextChanged += new System.EventHandler(this.txtNomeSecao2_TextChanged);
             // 
@@ -102,7 +102,7 @@
             // 
             this.colCodSecao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.colCodSecao.FillWeight = 152.2843F;
-            this.colCodSecao.HeaderText = "Codigo";
+            this.colCodSecao.HeaderText = "Código";
             this.colCodSecao.MinimumWidth = 6;
             this.colCodSecao.Name = "colCodSecao";
             this.colCodSecao.ReadOnly = true;
@@ -129,7 +129,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SelecionarSecao";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "SelecionarSecao";
+            this.Text = "Selecionar seção";
             this.Load += new System.EventHandler(this.SelecionarSecao_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dadosGrid5)).EndInit();
             this.ResumeLayout(false);
